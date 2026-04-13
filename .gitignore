@@ -1,0 +1,45 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# バイトコードキャッシュ
+*$py.class
+
+# ---- 仮想環境 ----
+.venv/
+venv/
+.env*/
+.env
+
+# ---- 試験関連 ----
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# ---- エディタ / IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- ログ / 一時ファイル ----
+*.log
+*.tmp
+*.bak
+
+# ---- ビルド / 配布物 ----
+build/
+dist/
+*.egg-info/
+
+# ---- プロジェクト固有 ----
+# Poetry関連
+pyproject.toml
+poetry.lock
+
+# SQLite DB
+data/*.db
+*.db
