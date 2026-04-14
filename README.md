@@ -1,5 +1,5 @@
 
-# ニュース記事推薦システム
+# ニュース記事レコメンドシステム
 
 ITmediaニュース記事をクローリングし、OpenAI Embeddingを用いて「いいね」履歴に基づくレコメンドを行うWebアプリです。
 
@@ -7,15 +7,15 @@ ITmediaニュース記事をクローリングし、OpenAI Embeddingを用いて
 
 - **クローラー**: ITmediaから最新記事を取得しDB保存
 - **Embedding生成**: OpenAI APIで記事本文のベクトル化
-- **検索・推薦**: いいね履歴をもとに類似記事を推薦
+- **検索・レコメンド**: いいね履歴をもとに類似記事をレコメンド
 - **いいね**: 記事ごとに「いいね」登録
 - **Web UI**: Streamlitによる簡易UI
 
 ## ディレクトリ構成
 
 - `src/recommendation/app.py` : Streamlitアプリ本体
-- `batch/` : バッチ処理スクリプト群（クローラ・埋め込み・検索・いいね）
-- `services/` : 各種ビジネスロジック（クローラ・埋め込み・保存・検索・いいね）
+- `batch/` : バッチ処理スクリプト群（クローラ・embedding・検索・いいね）
+- `services/` : 各種ビジネスロジック（クローラ・embedding・保存・検索・いいね）
 - `db/` : テーブル作成スクリプト
 - `tests/` : pytestによるユニットテスト
 
@@ -56,7 +56,7 @@ make run
 ### バッチスクリプトの手動実行
 
 - クローラ: `python batch/run_crawler.py`
-- 埋め込み: `python batch/run_embedding.py`
+- embedding: `python batch/run_embedding.py`
 - 検索: `python batch/run_search.py`
 - いいね: `python batch/run_like.py <article_id>`
 
