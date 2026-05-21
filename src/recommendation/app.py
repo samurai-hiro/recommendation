@@ -88,22 +88,25 @@ def render_results(rows):
 	if not rows:
 		return
 	st.subheader("検索結果")
-	header_cols = st.columns([4, 1, 1, 2])
+	header_cols = st.columns([4, 1, 2, 2, 2])
 	header_cols[0].write("タイトル")
 	header_cols[1].write("スコア")
 	header_cols[2].write("興味")
 	header_cols[3].write("URL")
+	header_cols[4].write("作成日")
 
 	for i, r in enumerate(rows):
 		title = r.get("タイトル", "")
 		score = r.get("スコア", "")
 		like_id = r.get("興味", "")  # ← 渡したい id
 		url = r.get("URL", "")
+		created_at = r.get("作成日", "")
 		liked = r.get("liked", None)
 
-		cols = st.columns([4, 1, 1, 2])
+		cols = st.columns([4, 1, 2, 2, 2])
 		cols[0].write(title)
 		cols[1].write(score)
+		cols[4].write(created_at)
 
 		# 興味列：いいねボタン
 		# すでにいいねされている場合はボタンを無効化

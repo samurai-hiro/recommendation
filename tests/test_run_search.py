@@ -14,8 +14,8 @@ class DummyConn:
 def test_main_prints_results_using_search_articles2(monkeypatch, capsys):
     # ダミーの検索結果
     results = [
-        {"title": "t1", "score": 90.0, "id": 1, "url": "u1", "liked": "liked"},
-        {"title": "t2", "score": 80.0, "id": 2, "url": "u2", "liked": None},
+        {"title": "t1", "score": 90.0, "id": 1, "url": "u1", "liked": "liked", "created_at": "2026-05-21 10:00"},
+        {"title": "t2", "score": 80.0, "id": 2, "url": "u2", "liked": None, "created_at": "2026-05-21 09:00"},
     ]
 
     conns = []
@@ -46,12 +46,14 @@ def test_main_prints_results_using_search_articles2(monkeypatch, capsys):
     assert "スコア: 90.0 %" in out
     assert "URL: u1" in out
     assert "liked: liked" in out
+    assert "作成日: 2026-05-21 10:00" in out
 
     assert "タイトル: t2" in out
     assert "スコア: 80.0 %" in out
     assert "URL: u2" in out
     # liked が None の場合もそのまま文字列化される
     assert "liked: None" in out
+    assert "作成日: 2026-05-21 09:00" in out
 
     # DB接続が1回だけ行われ、close されていること
     assert len(conns) == 1

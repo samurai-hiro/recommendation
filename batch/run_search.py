@@ -17,7 +17,7 @@ def main():
         if results:
             print(f"クエリ:{query}に対して類似度の高い記事：")
             for result in results:
-                print(f"タイトル: {result['title']}, スコア: {result['score']} %, 興味: {result['id']}, URL: {result['url']}, liked: {result['liked']}")
+                print(f"タイトル: {result['title']}, スコア: {result['score']} %, 興味: {result['id']}, URL: {result['url']}, liked: {result['liked']}, 作成日: {result['created_at_str']}")
         
     except Exception as e:
         print(f"Error during search operations: {e}", file=sys.stderr)
